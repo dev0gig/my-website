@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Dashboard</title>
+	<link rel="icon" href="https://cdn-icons-png.flaticon.com/512/11068/11068821.png" />
+</head>
+
+<style>
+	body {
+		margin: 0px;
+
+		display: flex;
+
+		background: rgb(17, 17, 17);
+		background: linear-gradient(90deg, rgba(17, 17, 17, 1) 0%, rgba(0, 0, 0, 1) 100%);
+
+		color: antiquewhite;
+	}
+
+	nav {
+		display: flex;
+		justify-content: space-between;
+		flex-direction: column;
+
+		border-right: 1px solid #555;
+
+		width: 100px;
+		height: 100vh;
+
+		.nav-logo {
+			height: 100px;
+
+			background-image: url(asset/nav.webp);
+			background-position: center;
+			background-size: cover;
+			filter: invert(1);
+		}
+
+		.home {
+			height: 100px;
+
+			background-image: url(asset/home.png);
+			background-position: center;
+			background-size: cover;
+
+			&:hover {
+				filter: invert(1);
+			}
+		}
+
+		.appdrawer {
+			height: 100px;
+
+			background-image: url(asset/appdrawer.png);
+			background-position: center;
+			background-size: cover;
+
+			&:hover {
+				filter: invert(1);
+			}
+		}
+
+		.unicorn {
+			height: 100px;
+
+			background-image: url(asset/unicorn.png);
+			background-position: center;
+			background-size: cover;
+
+			&:hover {
+				filter: invert(1);
+			}
+		}
+
+		.settings {
+			height: 100px;
+
+			background-image: url(asset/settings.png);
+			background-position: center;
+			background-size: cover;
+
+			&:hover {
+				filter: invert(1);
+			}
+		}
+	}
+
+	header {
+		display: flex;
+		justify-content: space-between;
+		flex-direction: row;
+
+		height: 100px;
+		width: 100%;
+
+		.search {
+			width: 100px;
+
+			background-image: url(asset/search.png);
+			background-position: center;
+			background-size: cover;
+			filter: invert(0.2);
+
+			&:hover {
+				filter: invert(1);
+			}
+		}
+	}
+
+	main {
+		flex: 1;
+	}
+
+	section {
+		display: flex;
+		justify-content: space-between;
+
+
+
+		.profilpic {
+			margin: 50px;
+
+			width: 400px;
+			height: 400px;
+
+			background-image: url(asset/profilpic.jpg);
+			background-position: center;
+			background-size: cover;
+
+			border-radius: 20px;
+			box-shadow: 0px 10px 10px black;
+		}
+	}
+</style>
+
+<body>
+	<nav>
+		<div class="nav-logo"></div>
+		<div>
+			<div class="home"></div>
+			<div class="appdrawer"></div>
+			<div class="unicorn"></div>
+			<div class="settings"></div>
+		</div>
+	</nav>
+
+	<main>
+		<header>
+			<div></div>
+			<div class="search"></div>
+		</header>
+		<section>
+			<div>
+				<embed src="">
+			</div>
+			<div class="profilpic"></div>
+		</section>
+	</main>
+</body>

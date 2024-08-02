@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unicorn</title>
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/128/4313/4313394.png" />
+
+  <!-- getmdl.io -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.orange-red.min.css" />
+  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+</head>
+
+<style>
+  .mdl-layout__content {
+    background-color: gainsboro;
+  }
+
+  .mdl-layout__drawer {
+    overflow: hidden;
+  }
+
+  .page-content {
+    padding: 30px;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: auto;
+
+    gap: 20px;
+  }
+
+  .group-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .demo-card-wide {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+  }
+
+  .nav_footer {
+    background-color: #242424;
+    color: whitesmoke;
+  }
+
+  .nav_warning {
+    padding: 5px;
+    background-color: purple;
+    color: whitesmoke;
+    font-size: large;
+
+    &:hover {
+      color: red;
+      background-color: yellow;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  }
+</style>
+
+<body>
+  <!-- Simple header with scrollable tabs. -->
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <!-- Title -->
+        <span class="mdl-layout-title">UNICORN by dev0gig (design from getmdl.io)</span>
+        <div class="mdl-layout-spacer"></div>
+
+        <div class="mdl-layout-spacer"></div>
+        <!-- Navigation. We hide it in small screens. -->
+        <nav class="mdl-navigation mdl-layout--large-screen-only">
+          <a class="mdl-navigation__link" target="_blank"
+            href="https://www.wienernetze.at/o/document/210215-sm_anleitung_landis_gyr_uk_v5_bf">LGZ</a>
+          <a class="mdl-navigation__link" target="_blank"
+            href="https://www.wienernetze.at/o/document/210213-sm_anleitung_siemens_uk_v4_bf">SMS</a>
+          <a class="mdl-navigation__link" target="_blank"
+            href="https://www.wienernetze.at/o/document/210213-sm_anleitung_iskrameco_uk_v06_bf">ISK</a>
+          <a class="mdl-navigation__link" target="_blank"
+            href="https://www.wienernetze.at/documents/34846/261085/Der_Ableseprozess.pdf/b2f018a6-fc82-578f-5bd4-d6d880c3f946?t=1586340649529">WN-Ableseprozess</a>
+        </nav>
+      </div>
+      <!-- Tabs -->
+      <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+        <a href="#scroll-tab-1" class="mdl-layout__tab is-active">Copilot</a>
+        <a href="#scroll-tab-2" class="mdl-layout__tab">Mail-Templates</a>
+        <a href="#scroll-tab-3" class="mdl-layout__tab">FET-Calculator</a>
+        <a href="#scroll-tab-4" class="mdl-layout__tab">Time-Tracking</a>
+      </div>
+    </header>
+    <div class="mdl-layout__drawer">
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="https://www.wienerstadtwerke.at/" target="_blank"> <img
+            src="https://www.wienerstadtwerke.at/image/layout_set_logo?img_id=18323761&t=1713959374804" /></a>
+        <a class="mdl-navigation__link" href="https://www.wienerlinien.at/" target="_blank"> <img
+            src="https://www.wienerlinien.at/image/layout_set_logo?img_id=18381139&t=1713959345651" /></a>
+        <a class="mdl-navigation__link" href="https://www.wienenergie.at/" target="_blank"> <img
+            src="https://www.wienenergie.at/wp-content/themes/we-theme/public/wp-content/themes/we-theme/public/logo-we-theme-regular.svg" /></a>
+        <a class="mdl-navigation__link" href="https://www.wienernetze.at/" target="_blank"> <img
+            src="https://www.wienernetze.at/image/layout_set_logo?img_id=18485159&t=1713959374622" /></a>
+        <a class="mdl-navigation__link" href="https://www.wlb.at/" target="_blank"> <img
+            src="https://www.wlb.at/image/layout_set_logo?img_id=18160554&t=1713959345658" /></a>
+        <a class="mdl-navigation__link" href="https://www.wipark.at/" target="_blank"> <img
+            src="https://www.wipark.at/image/layout_set_logo?img_id=6753665&t=1713959345375" /></a>
+        <a class="mdl-navigation__link" href="https://www.wienit.at/" target="_blank"> <img
+            src="https://www.wienit.at/image/layout_set_logo?img_id=18163000&t=1713959411884" /></a>
+        <a class="mdl-navigation__link" href="https://www.bestattungwien.at/" target="_blank"> <img
+            src="https://www.bestattungwien.at/image/layout_set_logo?img_id=18239249&t=1713959355571" /></a>
+        <a class="mdl-navigation__link" href="https://www.friedhoefewien.at/" target="_blank"> <img
+            src="https://www.friedhoefewien.at/image/layout_set_logo?img_id=18169382&t=1713959380757" /></a>
+        <a class="mdl-navigation__link" href="https://www.immoh.at/" target="_blank"> <img
+            src="https://www.immoh.at/image/layout_set_logo?img_id=18094283&t=1713959405431" height="40px" /></a>
+      </nav>
+      <div class="mdl-layout-spacer"></div>
+      <div class="nav_warning">
+        <a href="https://docs.google.com/document/d/e/2PACX-1vS01TLWA70_O5KpWqWH7JS4j231wjJXa3VgrDBFVT5K7EliPDMYhwBCnfknZM-VA5GTxJNGRVgtoHCp/pub"
+          target="_blank">
+          ⚠️Nicht für den produktiven Gebrauch ⚠️| befindet sich noch in Entwicklung</a>
+      </div>
+      <div class="nav_footer">
+        🦄 UNICORN 🦄 | ©dev0gig | dev0ギガ | Patrick Giger | NGIPAV
+      </div>
+    </div>
+    <main class="mdl-layout__content">
+
+      <!----------------------------------------------------
+      -██████╗-██████╗-██████╗-██╗██╗------██████╗-████████╗
+      ██╔════╝██╔═══██╗██╔══██╗██║██║-----██╔═══██╗╚══██╔══╝
+      ██║-----██║---██║██████╔╝██║██║-----██║---██║---██║---
+      ██║-----██║---██║██╔═══╝-██║██║-----██║---██║---██║---
+      ╚██████╗╚██████╔╝██║-----██║███████╗╚██████╔╝---██║---
+      -╚═════╝-╚═════╝-╚═╝-----╚═╝╚══════╝-╚═════╝----╚═╝---
+      ----------------------------------------------------->
+
+      <section class="mdl-layout__tab-panel is-active" id="scroll-tab-1">
+        <div class="page-content">
+          <!-- Häufige Links -->
+          <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+            <div class="mdl-card__title">
+              <h2 class="mdl-card__title-text">Häufige Links</h2>
+            </div>
+            <div class="mdl-card__supporting-text">
+              <div class="group-buttons">
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                  onclick="window.open('https://wstw365.sharepoint.com/:x:/r/sites/msteams_8cb9ed-KSA-SPErdberg/_layouts/15/Doc2.aspx?action=edit&sourcedoc=%7B79c7fd17-3b8b-4f6b-9e7e-b6f96c0d6cd8%7D&wdOrigin=TEAMS-MAGLEV.teamsSdk_ns.rwc&wdExp=TEAMS-TREATMENT&wdhostclicktime=1709636253264&web=1')">
+                  Mittagsplan
+                </button>
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                  onclick="window.open('https://wstw365.sharepoint.com/:x:/r/sites/msteams_8cb9ed-KSA-SPErdberg/_layouts/15/Doc.aspx?sourcedoc=%7B4A5869C9-A49F-41A1-8BB8-AC2A80484B92%7D&file=Sitzplatzbuchung_Erdberg%201.xlsx&action=default&mobileredirect=true')">
+                  Sitzplan-CB08
+                </button>
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+                  onclick="window.open('https://aufrufsystem/nova/Tickets')">
+                  Ausrufsystem
+                </button>
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+                  onclick="window.open('https://xenapp/Citrix/WSTWWeb/')">
+                  Citrix
+                </button>
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+                  onclick="window.open('https://cu300078.opcyc.net/setup/')">
+                  OPCYC
+                </button>
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+                  onclick="window.open('https://wien-energie.secova.de/module/login/#')">
+                  SAM
+                </button>
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+                  onclick="window.open('https://intranet.wienenergie.at')">
+                  Intranet
+                </button>
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+                  onclick="window.open('https://intranet-holding.wstw.energy-it.net/dsgvo-zustimmungserklaerung/#/zustimmung')">
+                  Datenschutz
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Wichtige Links -->
+          <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+            <div class="mdl-card__title">
+              <h2 class="mdl-card__title-text">Wichtige Links</h2>
+            </div>
+            <div class="mdl-card__supporting-text">
+              <div class="group-buttons">
+                <button class="mdl-button mdl-js-button mdl-button--raised"
+                  onclick="window.open('https://www.wien.gv.at/amtshelfer/gesundheit/gesundheitsrecht/sozialhilfe/energieunterstuetzung-plus.html')">
+                  MA40 Formular
+                </button>
+                <button class="mdl-button mdl-js-button mdl-button--raised"
+                  onclick="window.open('https://tois/we-mysite/index.php')">
+                  tois
+                </button>
+                <button class="mdl-button mdl-js-button mdl-button--raised"
+                  onclick="window.open('https://wienenergie.4me.com/self-service')">
+                  4me-Ticket
+                </button>
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent"
+                  onclick="window.open('http://intranet-wswdb/knowledgecenter/scXml.do?page=de.usu.infoboard%3AscInfoboard')">
+                  IWPF
+                </button>
+                <button class="mdl-button mdl-js-button mdl-button--raised"
+                  onclick="window.open('https://apps.powerapps.com/play/e/0089faf5-df22-4012-a29b-93b3d081d5da/a/c9242c89-c412-4a5c-94fe-29e2a847c0d2?tenantId=2df2bcec-2017-4339-b493-e3d7b3a460c8&hint=77f70e51-131f-4968-9872-f617488b1244&skipmetadata=true')">
+                  DeskFinder
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Strom & Gas -->
+          <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+            <div class="mdl-card__title">
+              <h2 class="mdl-card__title-text">Strom & Gas</h2>
+            </div>
+            <div class="mdl-card__supporting-text">
+              <div class="group-buttons">
+                <button class="mdl-button mdl-js-button mdl-button--raised"
+                  onclick="window.open('https://outlook.office.com/mail/rueckstand@wienenergie.at/')">
+                  Backlog
+                </button>
+                <button class="mdl-button mdl-js-button mdl-button--raised"
+                  onclick="window.open('https://meine.wienenergie.at/mac/#/')">
+                  MA Cockpit
+                </button>
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+                  onclick="window.open('https://meine.wienenergie.at/admintool/')">
+                  Admintool
+                </button>
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent"
+                  onclick="window.open('https://sapc2p.wstw.energy-it.net:8144/sap(bD1kZSZjPTIwMCZkPW1pbg==)/bc/bsp/sap/crm_ui_start/default.htm')">
+                  CRM
+                </button>
+              </div>
+              <br>Dummy GP-Nr. 1250001023
+              <br>PV-VK-Vorlage 228000183897
+            </div>
+          </div>
+
+          <!-- Tanke -->
+          <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+            <div class="mdl-card__title">
+              <h2 class="mdl-card__title-text">Tanke</h2>
+            </div>
+            <div class="mdl-card__supporting-text">
+              <div class="group-buttons">
+                <button class="mdl-button mdl-js-button mdl-button--raised"
+                  onclick="window.open('https://sp.wienenergie.at/CTY/emob/SitePages/Homepage.aspx')">
+                  Sharepoint
+                </button>
+                <button class="mdl-button mdl-js-button mdl-button--raised"
+                  onclick="window.open('https://app.powerbi.com/groups/me/apps/c7a71521-6fe0-47c0-a548-2d8e05c7a57b/reports/6738a907-c364-4785-a8f8-094a0e38bcfa/ReportSection1d4125bf56b4c39f32a4?ctid=2df2bcec-2017-4339-b493-e3d7b3a460c8&experience=power-bi')">
+                  Stellplatz 🔎
+                </button>
+                <button class="mdl-button mdl-js-button mdl-button--raised"
+                  onclick="window.open('https://itap.wstw.energy-it.net/#/orderMenue')">
+                  Störungsticket
+                </button>
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent"
+                  onclick="window.open('https://app.chargecloud.de/quicknavigation')">
+                  EMEX
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- SuperSchnell -->
+          <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+            <div class="mdl-card__title">
+              <h2 class="mdl-card__title-text">SuperSchnell</h2>
+            </div>
+            <div class="mdl-card__supporting-text">
+              <div class="group-buttons">
+
+              </div>
+            </div>
+          </div>
+
+          <!-- Fernwärme -->
+          <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+            <div class="mdl-card__title">
+              <h2 class="mdl-card__title-text">Fernwärme</h2>
+            </div>
+            <div class="mdl-card__supporting-text">
+              <div class="group-buttons">
+                <button class="mdl-button mdl-js-button mdl-button--raised"
+                  onclick="window.open('http://spam01/PAM4/frame/workplaceframe.aspx?')">
+                  PAM-Archiv
+                </button>
+                <button class="mdl-button mdl-js-button mdl-button--raised"
+                  onclick="window.open('https://outlook.office.com/mail/rueckstand.waerme@wienenergie.at/')">
+                  Backlog
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Wiener Netze -->
+          <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+            <div class="mdl-card__title">
+              <h2 class="mdl-card__title-text">Wiener Netze</h2>
+            </div>
+            <div class="mdl-card__supporting-text">
+              <div class="group-buttons">
+                <button class="mdl-button mdl-js-button mdl-button--raised"
+                  onclick="window.open('https://www.wienernetze.at/stromversorgung')">
+                  Stromausfälle
+                </button>
+                <button class="mdl-button mdl-js-button mdl-button--raised"
+                  onclick="window.open('https://outlook.office.com/mail/rueckstand@wienernetze.at/')">
+                  Backlog
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Andere Links -->
+          <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+            <div class="mdl-card__title">
+              <h2 class="mdl-card__title-text">Andere Links</h2>
+            </div>
+            <div class="mdl-card__supporting-text">
+              <div class="group-buttons">
+                <button class="mdl-button mdl-js-button mdl-button--raised"
+                  onclick="window.open('http://sdetpwe:8030/DET_Admin')">
+                  DET-Auftäge löschen
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!----------------------------
+      ███╗---███╗-█████╗-██╗██╗-----
+      ████╗-████║██╔══██╗██║██║-----
+      ██╔████╔██║███████║██║██║-----
+      ██║╚██╔╝██║██╔══██║██║██║-----
+      ██║-╚═╝-██║██║--██║██║███████╗
+      ╚═╝-----╚═╝╚═╝--╚═╝╚═╝╚══════╝
+      ----------------------------->
+
+      <section class="mdl-layout__tab-panel" id="scroll-tab-2">
+
+        <div class="page-content">
+          <style>
+            .mail_grid {
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              width: 100%;
+              gap: 20px;
+            }
+
+            .mail_button_flex {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 20px;
+            }
+
+            textarea {
+              font-family: Arial, Helvetica, sans-serif;
+            }
+          </style>
+          <div class="mail_grid">
+            <div class="mail_button_flex">
+
+              <!-- Kontaktdaten -->
+              <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title">
+                  <h2 class="mdl-card__title-text">Kontaktdaten</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                  <div class="group-buttons">
+                    <button class="mdl-button mdl-js-button mdl-button--raised" id="data_spit">Spittelau</button>
+                    <button class="mdl-button mdl-js-button mdl-button--raised" id="data_wn">WienerNetze</button>
+                    <button class="mdl-button mdl-js-button mdl-button--raised"
+                      id="data_KS_allgemein">contact_data</button>
+                    <button class="mdl-button mdl-js-button mdl-button--raised" id="data_inkasso">Inkassobüro</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Grundaufbau -->
+              <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title">
+                  <h2 class="mdl-card__title-text">Grundgerüst</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                  <div class="group-buttons">
+                    <button class="mdl-button mdl-js-button mdl-button--raised" id="grundgeruest">Grundgerüst</button>
+                    <button class="mdl-button mdl-js-button mdl-button--raised" id="tois_vorlage">Tois-Vorlage</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Strom & Gas -->
+              <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title">
+                  <h2 class="mdl-card__title-text">Strom & Gas</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                  <div class="group-buttons">
+                    <button class="mdl-button mdl-js-button mdl-button--raised" id="anmeldung">Anmeldung</button>
+                    <button class="mdl-button mdl-js-button mdl-button--raised" id="abmeldung">Abmeldung</button>
+                    <button class="mdl-button mdl-js-button mdl-button--raised" id="gh_auszahlung_ausweis_fehlt">GH, ID
+                      fehlt</button>
+                    <button class="mdl-button mdl-js-button mdl-button--raised" id="gh_auszahlung">GH
+                      Auszahlung</button>
+                    <button class="mdl-button mdl-js-button mdl-button--raised" id="kdnr_benötigt">Kundennummer
+                      benötigt</button>
+                    <button class="mdl-button mdl-js-button mdl-button--raised" id="rp">Ratenplan</button>
+                    <button class="mdl-button mdl-js-button mdl-button--raised"
+                      id="rechnungskorrektur_zählerstände">Rechnungskorrektur & Zählerstände</button>
+                    <button class="mdl-button mdl-js-button mdl-button--raised" id="sonnenstrom">Sonnenstrom</button>
+                    <button class="mdl-button mdl-js-button mdl-button--raised"
+                      id="verlassenschaft">Verlassenschaft</button>
+                    <button class="mdl-button mdl-js-button mdl-button--raised" id="tw">Tarifwechsel</button>
+                    <button class="mdl-button mdl-js-button mdl-button--raised"
+                      id="trockenlegungsbrief">Trockenlegungsbrief</button>
+                    <button class="mdl-button mdl-js-button mdl-button--raised" id="ummeldung_erfolgreich">Ummeldung
+                      erfolgreich</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Wärme -->
+              <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title">
+                  <h2 class="mdl-card__title-text">Wärme</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                  <div class="group-buttons">
+                    <button class="mdl-button mdl-js-button mdl-button--raised" id="waerme_anm">Anmeldung</button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <textarea id="outputArea" placeholder="Hier steht die Vorlage..."></textarea>
+
+          </div>
+
+        </div>
+
+        <script src="mailvorlagen.js"></script>
+
+      </section>
+
+      <!----------------------------------
+      ███╗---███╗-█████╗-████████╗██╗--██╗
+      ████╗-████║██╔══██╗╚══██╔══╝██║--██║
+      ██╔████╔██║███████║---██║---███████║
+      ██║╚██╔╝██║██╔══██║---██║---██╔══██║
+      ██║-╚═╝-██║██║--██║---██║---██║--██║
+      ╚═╝-----╚═╝╚═╝--╚═╝---╚═╝---╚═╝--╚═╝
+      ----------------------------------->
+
+      <section class="mdl-layout__tab-panel" id="scroll-tab-3">
+        <div class="page-content">
+
+          <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" id="meineTabelle"
+            width="100%">
+            <thead>
+              <tr>
+                <th class="mdl-data-table__cell--non-numeric">nVP</th>
+                <th class="eingebbar">FET</th>
+                <th class="berechenbar">bVP</th>
+                <th class="berechenbar">rnVP</th>
+                <th class="berechenbar">rbVP</th>
+                <th class="berechenbar">rnVP+GA</th>
+                <th class="berechenbar">rbVP+GA</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="mdl-data-table__cell--non-numeric" id="nVP_1">33.2612</td>
+                <td class="eingebbar" id="FET_1">190</td>
+                <td id="bVP_1"></td>
+                <td id="rnVP_1"></td>
+                <td id="rbVP_1"></td>
+                <td id="rnVP_GA_1"></td>
+                <td id="rbVP_GA_1"></td>
+                <td>Q3 / 2023 | STROM</td>
+              </tr>
+              <tr>
+                <td class="mdl-data-table__cell--non-numeric" id="nVP_2">7.2849</td>
+                <td class="eingebbar" id="FET_2">50</td>
+                <td id="bVP_2"></td>
+                <td id="rnVP_2"></td>
+                <td id="rbVP_2"></td>
+                <td id="rnVP_GA_2"></td>
+                <td id="rbVP_GA_2"></td>
+                <td>Q3 / 2023 | GAS</td>
+              </tr>
+              <tr>
+                <td class="mdl-data-table__cell--non-numeric" id="nVP_3">17.5490</td>
+                <td class="eingebbar" id="FET_3">55</td>
+                <td id="bVP_3"></td>
+                <td id="rnVP_3"></td>
+                <td id="rbVP_3"></td>
+                <td id="rnVP_GA_3"></td>
+                <td id="rbVP_GA_3"></td>
+                <td>Q2 / 2024 | STROM</td>
+              </tr>
+              <tr>
+                <td class="mdl-data-table__cell--non-numeric" id="nVP_4">5.1670</td>
+                <td class="eingebbar" id="FET_4">0</td>
+                <td id="bVP_4"></td>
+                <td id="rnVP_4"></td>
+                <td id="rbVP_4"></td>
+                <td id="rnVP_GA_4"></td>
+                <td id="rbVP_GA_4"></td>
+                <td>Q2 / 2024 | GAS</td>
+              </tr>
+              <tr>
+                <td class="mdl-data-table__cell--non-numeric"><input id="nVP_5" style="width: 100px;"></td>
+                <td class="eingebbar"><input id="FET_5" style="width: 100px;"></td>
+                <td id="bVP_5"></td>
+                <td id="rnVP_5"></td>
+                <td id="rbVP_5"></td>
+                <td id="rnVP_GA_5"></td>
+                <td id="rbVP_GA_5"></td>
+                <td><button onclick="berechneZeile(this.closest('tr'))">Berechnen</button></td>
+              </tr>
+            </tbody>
+            <button class="mdl-button mdl-js-button mdl-button--raised" onclick="neueZeileHinzufuegen()">Neue
+              Zeile</button>
+            Bitte UNBEDINGT Punkt statt Komma verwenden!
+          </table>
+
+          <script src="fet_cal.js"></script>
+
+          <div class="demo-card-square mdl-card mdl-shadow--2dp">
+            <div class="mdl-card__title">
+              <h2 class="mdl-card__title-text">Legende</h2>
+            </div>
+            <div class="mdl-card__supporting-text">
+              <p>VP = Verbrauchspreis</p>
+              <p>FET = FreiEnergie-Tage</p>
+              <p>n = netto</p>
+              <p>b = brutto (20%)
+              </p>
+              <p>r = rabattiert</p>
+              <p>GA = Gebrauchsabgabe (6% - only vienna)</p>
+            </div>
+          </div>
+
+          <!-- Preisblätter -->
+          <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+            <div class="mdl-card__title">
+              <h2 class="mdl-card__title-text">Preisblätter</h2>
+            </div>
+            <div class="mdl-card__supporting-text">
+              <div class="group-buttons">
+                <button class="mdl-button mdl-js-button mdl-button--raised"
+                  onclick="window.open('assets/Preisblätter/2023_Q3_S.pdf')">Strom-Preis 2023-Q3 mit 190FET</button>
+                <button class="mdl-button mdl-js-button mdl-button--raised"
+                  onclick="window.open('assets/Preisblätter/2023_Q3_G.pdf')">Gas-Preis 2023-Q3 mit 50FET</button>
+                <button class="mdl-button mdl-js-button mdl-button--raised"
+                  onclick="window.open('assets/Preisblätter/2024_Q2_S.pdf')">Strom-Preis 2024-Q2 mit 55FET</button>
+                <button class="mdl-button mdl-js-button mdl-button--raised"
+                  onclick="window.open('assets/Preisblätter/2024_Q2_S.pdf')">Gas-Preis 2024-Q2</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-----------------------------
+      ████████╗██╗███╗---███╗███████╗
+      ╚══██╔══╝██║████╗-████║██╔════╝
+      ---██║---██║██╔████╔██║█████╗--
+      ---██║---██║██║╚██╔╝██║██╔══╝--
+      ---██║---██║██║-╚═╝-██║███████╗
+      ---╚═╝---╚═╝╚═╝-----╚═╝╚══════╝
+      ------------------------------>
+
+      <section class="mdl-layout__tab-panel" id="scroll-tab-4">
+        <div class="page-content">
+
+          <style>
+            .time_flex {
+              display: flex;
+              gap: 20px;
+              width: 100%;
+            }
+          </style>
+
+          <div class="time_flex">
+            <div>
+              <!-- ZEITDIFFERENZ -->
+              <script>
+                function berechneDifferenz() {
+                  const ankunft = new Date(document.getElementById("ankunft").value);
+                  const abfahrt = new Date(document.getElementById("abfahrt").value);
+
+                  const differenzMs = abfahrt.getTime() - ankunft.getTime();
+                  const differenzSekunden = Math.abs(differenzMs / 1000);
+                  const differenzMinuten = differenzSekunden / 60;
+                  const differenzStunden = differenzMinuten / 60;
+
+                  let ergebnisText = "";
+
+                  if (differenzSekunden < 0) {
+                    ergebnisText =
+                      "Ungültige Eingabe: Abfahrtszeit liegt vor Ankunftszeit.";
+                  } else {
+                    ergebnisText = `${Math.floor(differenzStunden)}:${Math.floor(
+                      differenzMinuten % 60
+                    )
+                      .toString()
+                      .padStart(2, "0")}`; // Minuten auf zwei Stellen auffüllen
+                  }
+
+                  document.getElementById("ergebnis").textContent = ergebnisText;
+                }
+              </script>
+
+              <!-- Zeitdifferenz -->
+              <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+                <div class="mdl-card__title">
+                  <h2 class="mdl-card__title-text">Zeitdifferenz</h2>
+                </div>
+                <div class="mdl-card__supporting-text">
+                  <label for="ankunft">Ankunftszeit:</label>
+                  <input type="datetime-local" id="ankunft" required />
+                  <br />
+                  <br />
+                  <label for="abfahrt">Abfahrtszeit:</label>
+                  <input type="datetime-local" id="abfahrt" required />
+                  <br />
+                  <br />
+                  <button class="link" onclick="berechneDifferenz()">Berechnen</button>
+                  <br />
+                  <br />
+                  <p id="ergebnis"></p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Zeiterfassung -->
+            <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+              <div class="mdl-card__title">
+                <h2 class="mdl-card__title-text">Zeiterfassung</h2>
+              </div>
+              <div class="mdl-card__supporting-text">
+                <div class="group-buttons">
+                  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                    onclick="addEntry('Persönlich')">
+                    Persönlich
+                  </button>
+                  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                    onclick="addEntry('Pause')">
+                    Pause
+                  </button>
+                  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                    onclick="addEntry('Sachbearbeitung')">
+                    Sachbearbeitung
+                  </button>
+                  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+                    onclick="addEntry('Rückfrage')">
+                    Rückfrage
+                  </button>
+                  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+                    onclick="addEntry('Empfang')">
+                    Empfang
+                  </button>
+                  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+                    onclick="addEntry('Schulung')">
+                    Schulung
+                  </button>
+                  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+                    onclick="addEntry('Sondertätigkeit')">
+                    Sondertätigkeit
+                  </button>
+                  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+                    onclick="addEntry('Meeting')">
+                    Meeting
+                  </button>
+                  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+                    onclick="addEntry('TOJ')">
+                    TOJ
+                  </button>
+                  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+                    onclick="addEntry('Klogang')">
+                    Klogang
+                  </button>
+                  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+                    onclick="addEntry('ENDE')">
+                    ENDE
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <textarea type="text" id="time-text" rows="40" cols="50"
+                placeholder="Sobald auf ein Button gedrückt wird, erscheint die Zeit mit Status..."></textarea>
+            </div>
+
+            <script>
+              function addEntry(buttonName) {
+                const textarea = document.getElementById("time-text");
+                const currentTime = new Date().toLocaleString();
+                textarea.value += currentTime + " - " + buttonName + "\n";
+              }
+            </script>
+
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+</body>
+
+</html>

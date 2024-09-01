@@ -73,16 +73,11 @@ Sollten Sie noch Fragen haben, stehen wir Ihnen selbstverständlich gerne zur Ve
 // #####################################################################################################################
 
 document.getElementById('gh_auszahlung_ausweis_fehlt').addEventListener('click', function () {
-	const mailVorlage = `Guten Tag,
+	const mailVorlage = `Vielen Dank für Ihre Anfrage.
 
-vielen Dank für Ihre Nachricht!
+Um Ihre Bankverbindung zu hinterlegen und Ihr Guthaben auszuzahlen, benötigen wir zur Authentifizierung eine Ausweiskopie. Dies dient ausschließlich der Betrugsprävention und gewährleistet die Sicherheit Ihrer Auszahlung. Die von Ihnen beigefügte Ausweiskopie wird nicht in unserem System gespeichert, sondern dient ausschließlich Ihrer Identifikation und wird nach dem Datenabgleich unwiderruflich gelöscht.
 
-Um Ihr Guthaben auszahlen zu können, benötigen wir einen gültigen Lichtbildausweis von Ihnen. Dies dient ausschließlich der Legitimation und Ihre Daten werden gemäß DSGVO selbstverständlich nicht gespeichert.
-Bitte senden Sie uns eine Kopie Ihres Lichtbildausweises oder bringen Sie ihn persönlich in unseren Service Treff in der Spittelau vorbei.
-
-Sollten Sie in der Zwischenzeit Fragen haben, zögern Sie bitte nicht, uns zu kontaktieren.
-
-Vielen Dank für Ihre Mitarbeit!`;
+Wenn Sie keine Ausweiskopie per E-Mail senden möchten, können Sie Ihren Ausweis auch in einem unserer Servicecenter vorweisen.`;
 
 	document.getElementById('outputArea').value = mailVorlage;
 });
@@ -90,13 +85,11 @@ Vielen Dank für Ihre Mitarbeit!`;
 // #####################################################################################################################
 
 document.getElementById('gh_auszahlung').addEventListener('click', function () {
-	const mailVorlage = `Guten Tag,
+	const mailVorlage = `Vielen Dank für Ihre Anfrage.
 
-vielen Dank für Ihre Nachricht.
+Die Authentifizierung mittels Ihrer Ausweiskopie wurde erfolgreich durchgeführt. Die von Ihnen beigefügte Ausweiskopie wurde nicht in unserem System gespeichert, sondern diente ausschließlich Ihrer Identifikation und wurde nach dem Abgleich Ihrer Daten unwiderruflich gelöscht.
 
-Wie gewünscht, wird Ihr Guthaben innerhalb der nächsten 7-10 Werktage auf das von Ihnen angegebene Konto überwiesen.
-
-Falls Sie in der Zwischenzeit Fragen haben, zögern Sie bitte nicht, uns zu kontaktieren.`;
+Ihre Gutschrift erhalten Sie innerhalb der nächsten Werktage auf Ihr angegebenes Bankkonto überwiesen.`;
 
 	document.getElementById('outputArea').value = mailVorlage;
 });
@@ -361,20 +354,35 @@ Für Rückfragen stehen wir Ihnen selbstverständlich gerne zur Verfügung.`;
 // #####################################################################################################################
 
 document.getElementById('data_inkasso').addEventListener('click', function () {
-	const mailVorlage = `Riverty Services Austria GmbH - Forderungsmanagement - Inkasso
+	const mailVorlage = `Guten Tag,
 
-Adresse: Gertrude-Fröhlich-Sandner-Straße 1/2, 1100 Wien
-Telefon: +43 01 503 64 90
-Mail: info.at@riverty.com
-Web: https://www.riverty.com/at/business/`;
+Vielen Dank für Ihre Nachricht.
+
+Für weitere Auskünfte zum aktuellen Saldo, wenden Sie sich bitte direkt an die Firma Riverty Services Austria GmbH.
+
+Riverty Services Austria GmbH
+Getrude-Fröhlich-Sandner-Straße 1/2
+1100 Wien
+Telefon: +43 (0)386 80 90 38
+Homepage: www.riverty.com`;
 
 	document.getElementById('outputArea').value = mailVorlage;
 });
 
 // #####################################################################################################################
 
-document.getElementById('grundgerüst').addEventListener('click', function () {
-	const mailVorlage = ``;
+document.getElementById('waerme_an-/abm').addEventListener('click', function () {
+	const mailVorlage = `Guten Tag,
+
+vielen Dank für ihre Nachricht.
+ 
+wir haben Ihr Anliegen zur Kenntnis genommen und möchten Sie darüber informieren, dass wir alle An- und Abmeldungen direkt von der Hausverwaltung übermittelt bekommen.
+Wir bitten Sie daher noch um etwas Geduld.
+ 
+Die Schlussabrechnung wird bis spätestens 6 Monate nach Beendigung des Verrechnungsjahres erstellt und versendet. Bitte um Übermittelung Ihrer neuen Anschrift.
+ 
+Sollten Sie in der Zwischenzeit Fragen haben, zögern Sie bitte nicht, uns zu kontaktieren.
+`;
 
 	document.getElementById('outputArea').value = mailVorlage;
 });

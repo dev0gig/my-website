@@ -6,157 +6,1121 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Dashboard</title>
 	<link rel="icon" href="https://cdn-icons-png.flaticon.com/512/11068/11068821.png" />
+
+	<!-- getmdl.io -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_purple-pink.min.css" />
+	<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 </head>
 
 <style>
-	body {
+	html {
 		margin: 0px;
+		background-color: #111;
+	}
+
+	.app-container {
+		padding: 20px;
 
 		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between, center;
+		align-items: center, stretch;
+		gap: 20px;
+	}
 
-		background: rgb(17, 17, 17);
-		background: linear-gradient(90deg, rgba(17, 17, 17, 1) 0%, rgba(0, 0, 0, 1) 100%);
+	.demo-card-wide {
+		background-color: #222;
+		border: 1px solid black;
+		border-radius: 5px;
 
+		box-shadow: 0px 5px 5px black;
+
+		display: flex;
+		flex: 1 400px;
+	}
+
+	.mdl-card__title {
+		justify-content: center;
+	}
+
+	.mdl-card__title-text {
 		color: antiquewhite;
 	}
 
-	nav {
+	.mdl-card__supporting-text {
 		display: flex;
-		justify-content: space-between;
-		flex-direction: column;
-
-		border-right: 1px solid #555;
-
-		width: 100px;
-		height: 100vh;
-
-		.nav-logo {
-			height: 100px;
-
-			background-image: url(asset/nav.webp);
-			background-position: center;
-			background-size: cover;
-			filter: invert(1);
-		}
-
-		.home {
-			height: 100px;
-
-			background-image: url(asset/home.png);
-			background-position: center;
-			background-size: cover;
-
-			&:hover {
-				filter: invert(1);
-			}
-		}
-
-		.appdrawer {
-			height: 100px;
-
-			background-image: url(asset/appdrawer.png);
-			background-position: center;
-			background-size: cover;
-
-			&:hover {
-				filter: invert(1);
-			}
-		}
-
-		.unicorn {
-			height: 100px;
-
-			background-image: url(asset/unicorn.png);
-			background-position: center;
-			background-size: cover;
-
-			&:hover {
-				filter: invert(1);
-			}
-		}
-
-		.settings {
-			height: 100px;
-
-			background-image: url(asset/settings.png);
-			background-position: center;
-			background-size: cover;
-
-			&:hover {
-				filter: invert(1);
-			}
-		}
-	}
-
-	header {
-		display: flex;
-		justify-content: space-between;
 		flex-direction: row;
-
-		height: 100px;
-		width: 100%;
-
-		.search {
-			width: 100px;
-
-			background-image: url(asset/search.png);
-			background-position: center;
-			background-size: cover;
-			filter: invert(0.2);
-
-			&:hover {
-				filter: invert(1);
-			}
-		}
+		flex-wrap: wrap;
+		gap: 15px;
 	}
 
-	main {
-		flex: 1;
-	}
+	.app {
+		background-size: cover;
+		height: 50px;
+		width: 50px;
+		border: 1px solid white;
+		border-radius: 50%;
+		cursor: pointer;
 
-	section {
-		display: flex;
-		justify-content: space-between;
-
-
-
-		.profilpic {
-			margin: 50px;
-
-			width: 400px;
-			height: 400px;
-
-			background-image: url(asset/profilpic.jpg);
-			background-position: center;
-			background-size: cover;
-
-			border-radius: 20px;
-			box-shadow: 0px 10px 10px black;
+		&:hover {
+			cursor: pointer;
+			transform: scale(1.2);
 		}
 	}
 </style>
 
 <body>
-	<nav>
-		<div class="nav-logo"></div>
-		<div>
-			<div class="home"></div>
-			<div class="appdrawer"></div>
-			<div class="unicorn"></div>
-			<div class="settings"></div>
-		</div>
-	</nav>
+	<!-- Simple header with scrollable tabs. -->
+	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+		<header class="mdl-layout__header">
+			<div class="mdl-layout__header-row">
+				<!-- Title -->
+				<span class="mdl-layout-title">Dashboard by dev0gig (design from getmdl.io)</span>
+				<div class="mdl-layout-spacer"></div>
 
-	<main>
-		<header>
-			<div></div>
-			<div class="search"></div>
-		</header>
-		<section>
-			<div>
-				<embed src="01_appdrawer/index.html" height="700px" width="1000px">
+				<!-- Expandable Textfield -->
+				<form action="#">
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+						<label class="mdl-button mdl-js-button mdl-button--icon" for="search">
+							<i class="material-icons">search</i>
+						</label>
+						<div class="mdl-textfield__expandable-holder">
+							<input class="mdl-textfield__input" type="text" id="search">
+							<label class="mdl-textfield__label" for="sample-expandable">Expandable Input</label>
+						</div>
+					</div>
+				</form>
 			</div>
-			<div class="profilpic"></div>
+			<!-- Tabs -->
+			<div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+				<a href="#scroll-tab-1" class="mdl-layout__tab is-active">Appdrawer</a>
+				<a href="#scroll-tab-2" class="mdl-layout__tab">Kochen</a>
+				<a href="#scroll-tab-3" class="mdl-layout__tab">Tab 3</a>
+				<a href="#scroll-tab-4" class="mdl-layout__tab">Tab 4</a>
+				<a href="#scroll-tab-5" class="mdl-layout__tab">Tab 5</a>
+				<a href="#scroll-tab-6" class="mdl-layout__tab">coden üben</a>
+			</div>
+		</header>
+		<div class="mdl-layout__drawer">
+			<span class="mdl-layout-title">ext. Links</span>
+			<nav class="mdl-navigation">
+				<a class="mdl-navigation__link" href="https://dev0gig.github.io/web.unicorn" target="_blank">🦄
+					UNICRON</a>
+			</nav>
+		</div>
+	</div>
+
+	<main class="mdl-layout__content">
+
+		<!------------------------------------------------------------------------------------------------->
+		<!------------------------------------------------------------------------------------------------->
+		<!------------------------------------------------------------------------------------------------->
+		<!------------------------------------------------------------------------------------------------->
+		<!------------------------------------------------------------------------------------------------->
+
+
+		<section class="mdl-layout__tab-panel is-active" id="scroll-tab-1">
+			<div class="page-content">
+				<div class="app-container">
+
+					<!-- Google -->
+					<div class="demo-card-wide mdl-card mdl-shadow--2dp">
+						<div class="mdl-card__title">
+							<h2 class="mdl-card__title-text">Google</h2>
+						</div>
+						<div class="mdl-card__supporting-text">
+							<button class="app" title="Account Google"
+								data-url="https://myaccount.google.com/?utm_source=account-marketing-page&utm_medium=go-to-account-button&pli=1"
+								data-img="https://www.shareicon.net/data/512x512/2017/06/21/887431_plus_512x512.png"></button>
+							<button class="app" title="Gmail" data-url="https://gmail.com"
+								data-img="https://play-lh.googleusercontent.com/KSuaRLiI_FlDP8cM4MzJ23ml3og5Hxb9AapaGTMZ2GgR103mvJ3AAnoOFz1yheeQBBI=w240-h480"></button>
+							<button class="app" title="Gemini" data-url="https://gemini.google.com/app"
+								data-img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThr7qrIazsvZwJuw-uZCtLzIjaAyVW_ZrlEQ&s"></button>
+							<button class="app" title="Google Drive" data-url="https://drive.google.com/drive/my-drive"
+								data-img="https://play-lh.googleusercontent.com/t-juVwXA8lDAk8uQ2L6d6K83jpgQoqmK1icB_l9yvhIAQ2QT_1XbRwg5IpY08906qEw=w240-h480"></button>
+							<button class="app" title="Google Zahlungen"
+								data-url="https://payments.google.com/gp/w/home/paymentmethods?sctid=7303706381863505"
+								data-img="https://downloadr2.apkmirror.com/wp-content/uploads/2022/07/Google-Wallet_round-384x384.png"></button>
+							<button class="app" title="GoogleMaps" data-url="https://www.google.at/maps/preview"
+								data-img="https://play-lh.googleusercontent.com/Kf8WTct65hFJxBUDm5E-EpYsiDoLQiGGbnuyP6HBNax43YShXti9THPon1YKB6zPYpA=w240-h480"></button>
+
+						</div>
+					</div>
+
+					<!-- Microsoft -->
+					<div class="demo-card-wide mdl-card mdl-shadow--2dp">
+						<div class="mdl-card__title">
+							<h2 class="mdl-card__title-text">Microsoft</h2>
+						</div>
+						<div class="mdl-card__supporting-text">
+							<button class="app" title="Account Microsoft"
+								data-url="https://account.microsoft.com/?refd=support.microsoft.com"
+								data-img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLsn2ksgk5BVb8UNgzXbwP8NTRQ6jH3CDyuw&s"></button>
+							<button class="app" title="Office365" data-url="https://office.com/"
+								data-img="https://static.vecteezy.com/system/resources/thumbnails/038/600/559/small/microsoft-365-logo-microsoft-365-editorial-logo-transparent-illustration-white-background-eps-10-free-vector.jpg"></button>
+							<button class="app" title="Outlook" data-url="https://outlook.live.com/mail/0/"
+								data-img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUMvAw1TdYEA6cRqsjcN-mFqah36NBgiZ9j1BpU9Vpv9Yz28TjY1NVZ1CiDC0109ucVIk&usqp=CAU"></button>
+							<button class="app" title="Onedrive" data-url="https://onedrive.live.com/?id=root&cid=0C6CCA416C0AEF80"
+								data-img="https://play-lh.googleusercontent.com/6AWr-qrhGT0ohjw0koq3bM8GHEFg1gTurald4FjCDg2RulTp4y_VVsYWUtw7Fo6lsQo=s64"></button>
+							<button class="app" title="Outlook Kalender" data-url="https://outlook.live.com/calendar/0/view/month"
+								data-img="https://mattermost.com/wp-content/uploads/2023/05/Microsoft-Calendar.webp"></button>
+
+						</div>
+					</div>
+
+					<!-- Office -->
+					<div class="demo-card-wide mdl-card mdl-shadow--2dp">
+						<div class="mdl-card__title">
+							<h2 class="mdl-card__title-text">Office</h2>
+						</div>
+						<div class="mdl-card__supporting-text">
+							<button class="app" title="PDF24 Tools" data-url="https://tools.pdf24.org/de/alle-toolspdf"
+								data-img="https://upload.wikimedia.org/wikipedia/commons/c/c0/PDF24_Creator_application_logo_256x256.png"></button>
+							<button class="app" title="ChatGPT" data-url="https://chat.openai.com/"
+								data-img="https://play-lh.googleusercontent.com/6qi3w4uqKaD1c-CBdkkfO6IL0lH4OoCTEdiX0oYbLFxwfvxu1t8vuwHcagdYSFmFKmI=w240-h480"></button>
+							<button class="app" title="PCloud" data-url="https://my.pcloud.com//#page=filemanager"
+								data-img="https://play-lh.googleusercontent.com/5C2U8bk9x9-SzmJqy4xb9urLqwY1JvX-kU4EEVL-bSSEjv1wyM7IT7o4svuAKbsHUoA=w240-h480"></button>
+							<button class="app" title="Account iCloud" data-url="https://www.icloud.com/"
+								data-img="https://support.palcs.org/hc/article_attachments/115024286827/appleid.jpg"></button>
+							<button class="app" title="Account Samsung" data-url="https://v3.account.samsung.com/dashboard"
+								data-img="https://store-images.s-microsoft.com/image/apps.58782.14076960366400316.c3089d02-de3a-4996-a241-5ce5272b6af0.4e905b1f-fe04-4aaf-9f2d-6ed386f25f74"></button>
+							<button class="app" title="Github" data-url="https://github.com/dev0gig"
+								data-img="https://cdn.worldvectorlogo.com/logos/github-icon-2.svg"></button>
+							<button class="app" title="VS Code Web" data-url="https://vscode.dev/"
+								data-img="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/512px-Visual_Studio_Code_1.35_icon.svg.png?20210804221519"></button>
+						</div>
+					</div>
+
+					<!-- Bildung -->
+					<div class="demo-card-wide mdl-card mdl-shadow--2dp">
+						<div class="mdl-card__title">
+							<h2 class="mdl-card__title-text">Bildung</h2>
+						</div>
+						<div class="mdl-card__supporting-text">
+							<button class="app" title="Udemy" data-url="https://www.udemy.com/home/my-courses/learning/"
+								data-img="https://pageflows.com/media/logos/udemy.png"></button>
+							<button class="app" title="Blinkist" data-url="https://www.blinkist.com/de/content/daily"
+								data-img="https://network1consulting.com/wp-content/uploads/2017/03/Blinkist-logo.png"></button>
+							<button class="app" title="Renshuu" data-url="https://www.renshuu.org/me"
+								data-img="https://www.renshuu.org/apple-icon-144x144.png"></button>
+							<button class="app" title="Spanishdict" data-url="https://www.spanishdict.com/"
+								data-img="https://d1q4kshf6f0axi.cloudfront.net/img/common/apple-touch-icons/favicon-production.png"></button>
+							<button class="app" title="Tolino"
+								data-url="https://webreader.mytolino.com/library/index.html#/mybooks/titles"
+								data-img="https://play-lh.googleusercontent.com/gj2xFcVsPRfjeAMMX0zG9_9TqcHeH30YbR3FdtPo2cHhcHbU6OGKsEqERriVuo8OCpg"></button>
+							<button class="app" title="Kanjiquizzer" data-url="https://kanjiquizzer.com/"
+								data-img="https://www.shareicon.net/download/2016/07/09/118990_kanji6_512x512.png"></button>
+
+						</div>
+					</div>
+
+					<!-- Shopping -->
+					<div class="demo-card-wide mdl-card mdl-shadow--2dp">
+						<div class="mdl-card__title">
+							<h2 class="mdl-card__title-text">Shopping</h2>
+						</div>
+						<div class="mdl-card__supporting-text">
+							<button class="app" title="Willhaben" data-url="https://www.willhaben.at/iad/myprofile/myadverts"
+								data-img="https://play-lh.googleusercontent.com/_35j5GWebpnajJ5jCHVEtvbBm6Xt5CrkeTZ2mWqX-p7e2iCvNSO3qMf6mDWF6x5ZPg"></button>
+							<button class="app" title="Amazon" data-url="https://www.amazon.de/"
+								data-img="https://play-lh.googleusercontent.com/1Ns1T_qN0pEXMvZeZ5lQNAR8z4blP7ce2J2Nn5doXvt2T1g_W7VMORdWHaApkOooupI=w240-h480"></button>
+							<button class="app" title="Thalia" data-url="https://www.thalia.at/"
+								data-img="https://cdn.lovesavingsgroup.com/logos/thalia.png"></button>
+							<button class="app" title="Crazy-Factory" data-url="https://www.crazy-factory.com/de/"
+								data-img="https://play-lh.googleusercontent.com/4NmtlyZKGH0ib4cPnJvLK6tklQy2a-BnOB1ClclFpSmE8axkAdv7SmenPnlO3ahP-yA=w240-h480-rw"></button>
+							<button class="app" title="Ikea" data-url="https://www.ikea.com/at/de/"
+								data-img="https://play-lh.googleusercontent.com/U_hRwbvZcVxq32BmCBGRd-dH9S2PmkiFovPdEz5CPDzMzELNYP7njs44EQFqTWQJIdc"></button>
+							<button class="app" title="Cineplexx" data-url="https://www.cineplexx.at/"
+								data-img="https://play-lh.googleusercontent.com/4-TQTNX802eClPmKSyUZEWFF7OOfmWlOVjwCdCqInp1NxNjpR5VT2mYmF128I3vxs3Q=w240-h480"></button>
+							<button class="app" title="Etsy" data-url="https://www.etsy.com/at/?ref=lgo"
+								data-img="https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Temu_logo.svg/1200px-Temu_logo.svg.png"></button>
+
+						</div>
+					</div>
+
+					<!-- Gesundheit -->
+					<div class="demo-card-wide mdl-card mdl-shadow--2dp">
+						<div class="mdl-card__title">
+							<h2 class="mdl-card__title-text">Gesundheit</h2>
+						</div>
+						<div class="mdl-card__supporting-text">
+							<button class="app" title="Shop-Apotheke" data-url="https://www.shop-apotheke.at/"
+								data-img="https://static.shop-apotheke.com/media/content/ueber-uns/shop-com-ueber-uns-section1-logo-rebranding.png"></button>
+							<button class="app" title="Noumen"
+								data-url="https://noumen.co/tools/recurring/portal/eb5e93401992757f3d36959223b0b7/overview?token=614cf35239874551b513e93c7de0cab9"
+								data-img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWwIh6b1mbLxIRxSy071lsbO4CsdiEFsYxpA&s"></button>
+							<button class="app" title="Huel" data-url="https://de.huel.com/account#/"
+								data-img="https://www.indigoclothing.com/wp-content/uploads/2020/09/huel-logo.png"></button>
+
+						</div>
+					</div>
+
+					<!-- Navigation -->
+					<div class="demo-card-wide mdl-card mdl-shadow--2dp">
+						<div class="mdl-card__title">
+							<h2 class="mdl-card__title-text">Navigation</h2>
+						</div>
+						<div class="mdl-card__supporting-text">
+							<button class="app" title="Austrian Airline" data-url="https://www.austrian.com/at/de/homepage"
+								data-img="https://play-lh.googleusercontent.com/-9pGcOR99Sm7hMO71p4PQAynzG04AYzEbzs1DtZgghmkys9CVurGReaQX0_wF-EDIjsZ=w240-h480"></button>
+							<button class="app" title="Uber" data-url="https://m.uber.com/go/pickup"
+								data-img="https://play-lh.googleusercontent.com/AQtSF5Sl18yp3mQ2tcbOrBLekb7cyP3kyg5BB1uUuc55zfcnbkCDLHFTBwZfYiu1aDI=w240-h480"></button>
+							<button class="app" title="Westbahn" data-url="https://westbahn.at/"
+								data-img="https://play-lh.googleusercontent.com/r10jLPl0lBndrbWwEZlSGavtymnHKx1WvmCf17mFrLLAG78Xwx6Dghb_OdFziNt_xps=w240-h480"></button>
+							<button class="app" title="ÖBB-Tickets" data-url="https://shop.oebbtickets.at/de/ticket?cref=oebb-header"
+								data-img="https://play-lh.googleusercontent.com/bqOtuEIHIdui0I3bmp2f2GVdiHXDLWdJGaJV09-WASs3yQk6cX2ZiMCuyRxcV8FzhuqU=w240-h480"></button>
+							<button class="app" title="Klimaticket" data-url="https://shop.klimaticket.at/de/ticket"
+								data-img="https://www.infas.at/wp-content/uploads/2021/10/LogbuchKlimaticket_LaunchIcon-e1634894305325.png"></button>
+							<button class="app" title="GetYourGuide" data-url="https://www.getyourguide.de/"
+								data-img="https://play-lh.googleusercontent.com/QMg0LWwb9Ki67eLcIcFpZxvCvBrW0aefn6BmXBJq3zj1G5Z_LYxcPdGKs_WWx8R5Gw=s48"></button>
+							<button class="app" title="Booking.com" data-url="https://secure.booking.com/"
+								data-img="https://play-lh.googleusercontent.com/eJuvWSnbPwEWAQCYwl8i9nPJXRzTv94JSYGGrKIu0qeuG_5wgYtb982-2F_jOGtIytY=s48"></button>
+
+						</div>
+					</div>
+
+					<!-- Entertainment -->
+					<div class="demo-card-wide mdl-card mdl-shadow--2dp">
+						<div class="mdl-card__title">
+							<h2 class="mdl-card__title-text">Entertainment</h2>
+						</div>
+						<div class="mdl-card__supporting-text">
+							<button class="app" title="Joyn" data-url="https://www.joyn.at/"
+								data-img="https://play-lh.googleusercontent.com/rFopOtPVy9cbxiiMJuFj-n_fupXZpo6vtV3SqD-8GndqccOFi95U8jHN4NKPTkKYZ_ky"></button>
+							<button class="app" title="Chess.com" data-url="https://www.chess.com/home"
+								data-img="https://play-lh.googleusercontent.com/a7R5nyeaX8lIEWdBOxjlvbyq9LcFwh3XMvNtBPEKR3LPGgdvgGrec4sJwn8tUaaSkw"></button>
+							<button class="app" title="Pinterest" data-url="https://at.pinterest.com/"
+								data-img="https://play-lh.googleusercontent.com/dVsv8Hc4TOUeLFAahxR8KANg22W9dj2jBsTW1VHv3CV-5NCZjP9D9i2j5IpfVx2NTB8=w240-h480"></button>
+							<button class="app" title="Der Standard" data-url="https://www.derstandard.at/"
+								data-img="https://play-lh.googleusercontent.com/NumCI9TcvwIDn-EdpcMzz7y_TOzLhUxgGNQu-CUAU3o7OmGyE_AHzarWc5tB7lUggQ=w240-h480-rw"></button>
+							<button class="app" title="Inoreader" data-url="https://www.inoreader.com/all_articlesino"
+								data-img="https://play-lh.googleusercontent.com/bAR-n9nd5KJ9qniTr_sXlAVi9lQZc46qb5wfFv8Cct-aWcaOptFYUjz6YmGJjWpH2g"></button>
+							<button class="app" title="Freevee"
+								data-url="https://www.amazon.de/gp/video/storefront/subscription/freewithads"
+								data-img="https://play-lh.googleusercontent.com/9UttbHwx67UtStKxm04wYd68qvxBDFvFYZEuGbp0vOyrs8fJqpcFNjMegmIBnih1LtOb=w240-h480-rw"></button>
+							<button class="app" title="Youtube" data-url="https://youtube.com"
+								data-img="https://static-00.iconduck.com/assets.00/youtube-icon-2048x2048-wiwalbpx.png"></button>
+
+						</div>
+					</div>
+
+					<!-- Games -->
+					<div class="demo-card-wide mdl-card mdl-shadow--2dp">
+						<div class="mdl-card__title">
+							<h2 class="mdl-card__title-text">Games</h2>
+						</div>
+						<div class="mdl-card__supporting-text">
+							<button class="app" title="Steam" data-url="https://store.steampowered.com/?l=german"
+								data-img="https://play-lh.googleusercontent.com/52_DMY5417awaEgJf3_9mWgEuO2t1JfkGab8kM-LD6l5u6cGm_1-GsoQ_IyWFHdbkA=w240-h480"></button>
+							<button class="app" title="Epic Games" data-url="https://store.epicgames.com/de/"
+								data-img="https://static-00.iconduck.com/assets.00/epic-games-icon-512x512-7qpmojcd.png"></button>
+							<button class="app" title="Ubisoft" data-url="https://ubisoftconnect.com/de-DE/"
+								data-img="https://i0.wp.com/crinrict.com/blog/wp-content/uploads/2019/04/UPlay.jpg?fit=400%2C400&ssl=1"></button>
+							<button class="app" title="EA Games" data-url="https://www.ea.com/de-de"
+								data-img="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Electronic-Arts-Logo.svg/2048px-Electronic-Arts-Logo.svg.png"></button>
+							<button class="app" title="game8" data-url="https://game8.co/"
+								data-img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQQ35D3yiLP03YrCBx3cr80fuZhUcEP2lCBA&s"></button>
+							<button class="app" title="HowLongToBeat" data-url="https://howlongtobeat.com"
+								data-img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrbIgojPFmZmEhTCqzmyF0pgmtdr6VVWw01A&s"></button>
+							<button class="app" title="HoyoPlay" data-url="https://hoyoplay.hoyoverse.com/"
+								data-img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT15i5E0i4dumrrjQ6irGeqEFk-TvvFjnEV3Q&s"></button>
+							<button class="app" title="HoyoLab" data-url="https://www.hoyolab.com/home"
+								data-img="https://play-lh.googleusercontent.com/KtDuSNwcx8nuDg5AGincsvLVm1xn7gfitdD7E9TVBC7C9zShz_oKOTwSNM7CzFP7pcI=s48-rw"></button>
+						</div>
+					</div>
+
+					<!-- Finanzen -->
+					<div class="demo-card-wide mdl-card mdl-shadow--2dp">
+						<div class="mdl-card__title">
+							<h2 class="mdl-card__title-text">Finanzen</h2>
+						</div>
+						<div class="mdl-card__supporting-text">
+							<button class="app" title="Paypal" data-url="https://www.paypal.com/myaccount/summary"
+								data-img="https://play-lh.googleusercontent.com/bDCkDV64ZPT38q44KBEWgicFt2gDHdYPgCHbA3knlieeYpNqbliEqBI90Wr6Tu8YOw=w240-h480"></button>
+							<button class="app" title="Georg"
+								data-url="https://login.sparkasse.at/sts/oauth/authorize?response_type=token&client_id=georgeclient&state="
+								data-img="https://play-lh.googleusercontent.com/iO3mw3CXFdTFhH_IMBirs-caiJO301aEeOXzPgr13J22W1U0z-PWr6GSnTgbZeu6vCA=w240-h480"></button>
+							<button class="app" title="Revolut" data-url="https://app.revolut.com/home/accounts"
+								data-img="https://play-lh.googleusercontent.com/bo7Qeq8XZVI4hyXTVyG7Oi3hMiqADqruYeyQWqzzJzNHCYNVLmpAne0XP4_JH2AJ1tE=w240-h480"></button>
+							<button class="app" title="FinanzOnline" data-url="https://finanzonline.bmf.gv.at/fon/"
+								data-img="https://play-lh.googleusercontent.com/QQdz7x2gcVhe88tgzfT-2CNfh3nD6YNB8_ATmlvmItBZX4hcavVUUbVrODLyYDqQjmg"></button>
+
+						</div>
+					</div>
+
+					<!-- Admin -->
+					<div class="demo-card-wide mdl-card mdl-shadow--2dp">
+						<div class="mdl-card__title">
+							<h2 class="mdl-card__title-text">Admin</h2>
+						</div>
+						<div class="mdl-card__supporting-text">
+							<button class="app" title="MWE" data-url="https://meine.wienenergie.at/meine-produkte"
+								data-img="https://asset.brandfetch.io/idxMsvx3_5/idwskCr3b8.png"></button>
+							<button class="app" title="Smartmeter" data-url="//smartmeter-web.wienernetze.at/#/welcome"
+								data-img="https://i.pinimg.com/564x/06/f8/a8/06f8a805485280b133724cbd37635ecd.jpg"></button>
+							<button class="app" title="Magenta" data-url="https://www.magenta.at/magenta-welt/mein-magenta-kabel"
+								data-img="//play-lh.googleusercontent.com/JJ69JlPec8kjBf3uM5khgzHsc_kTS73wmcrLwnMkDfyNLkyjVSyBmgQdRG50xxZBRwc=s48"></button>
+							<button class="app" title="Post" data-url="https://www.post.at/en/s/item-overview"
+								data-img="https://play-lh.googleusercontent.com/LCn0zMVjJXauMDNclMVMv8Ht-TNHHLqbCA61Xa7OR3X489dtOgpdFpzXT7H8KM_yTppO=s64"></button>
+							<button class="app" title="Post E-Brief" data-url="https://www.e-brief.at/fe/deliveries"
+								data-img="https://play-lh.googleusercontent.com/jimiOvoIvC76HORDqXcpQFDWBvKCyCKu2AKNGnYKW5Rr-NobKbea2bsqetozEyoaKqe-=s48-rw"></button>
+							<button class="app" title="E-Ams" data-url="https://www.e-ams.at/eams-sfa-account/p/index.jsf"
+								data-img="https://play-lh.googleusercontent.com/VRQtGOSOAV6PMOI898-uq16s3pQHH19_LEFWbeH1z7K4-bUGdRfrcvQx44LNbn4NOGI=w240-h480-rw"></button>
+							<button class="app" title="Mein Wien"
+								data-url="https://mein.wien.gv.at/login/?redirect=https://mein.wien.gv.at/Meine-Amtswege/#loade"
+								data-img="https://play-lh.googleusercontent.com/1lXS_bGAlWWV0-LVNM1yO4H3bYy0JgXrGR2-PzBxDCCdFtoI0pytFHf2hobn4qn7Ofd7"></button>
+						</div>
+					</div>
+
+					<!-- Versicherung -->
+					<div class="demo-card-wide mdl-card mdl-shadow--2dp">
+						<div class="mdl-card__title">
+							<h2 class="mdl-card__title-text">Versicherung</h2>
+						</div>
+						<div class="mdl-card__supporting-text">
+							<button class="app" title="Versicherung HDI" data-url="https://www.hdi.de/mein-hdi/vertraege"
+								data-img="https://cdn.worldvectorlogo.com/logos/hdi.svg"></button>
+							<button class="app" title="Simplr" data-url="https://login.simplr.de/#/dashboard"
+								data-img="https://play-lh.googleusercontent.com/2lDYD2Gd75L9qSeGKQgHp2enMlLGOopURlA2cEqbS7zyQakEg0Z2eo-C_z9mTpt5Gg"></button>
+							<button class="app" title="ÖGK"
+								data-url="https://www.meineoegk.at/cdscontent/?contentid=10007.883235&portal=oegkportal"
+								data-img="https://static.ots.at/pressemappe/33033/11825_fb.jpg?t=1578931588"></button>
+							<button class="app" title="Wiener Städtische" data-url="https://losleben.wienerstaedtische.at/app/login"
+								data-img="https://play-lh.googleusercontent.com/w_Q8D-sCwYn5eKykRC-0377S9V8a2a_syDJ64hfDsenJmtjHAdLTZ7FEEaJWRQrgHzs"></button>
+							<button class="app" title="SunContract GreenFinance" data-url="https://xserv.kdportal.de/"
+								data-img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQo7KPVVl5G7Ul2blQh6Ef4lofCI0Fvj87McLWEtPq2YQ&s"></button>
+
+						</div>
+					</div>
+
+					<script>
+						const buttons = document.querySelectorAll(".app");
+						// url
+						buttons.forEach((button) => {
+							button.addEventListener("click", () => {
+								const url = button.dataset.url;
+								window.open(url, '_blank');
+							});
+							// img
+							buttons.forEach(function (button) {
+								const imgURL = button.dataset.img;
+								button.style.backgroundImage = `url(${imgURL})`;
+							});
+						});
+					</script>
+
+				</div>
+			</div>
 		</section>
+
+		<!------------------------------------------------------------------------------------------------->
+		<!------------------------------------------------------------------------------------------------->
+		<!------------------------------------------------------------------------------------------------->
+		<!------------------------------------------------------------------------------------------------->
+		<!------------------------------------------------------------------------------------------------->
+
+
+		<section class="mdl-layout__tab-panel" id="scroll-tab-2">
+			<div class="page-content"><!-- Your content goes here --></div>
+		</section>
+
+		<!------------------------------------------------------------------------------------------------->
+		<!------------------------------------------------------------------------------------------------->
+		<!------------------------------------------------------------------------------------------------->
+		<!------------------------------------------------------------------------------------------------->
+		<!------------------------------------------------------------------------------------------------->
+
+
+		<section class="mdl-layout__tab-panel" id="scroll-tab-3">
+			<div class="page-content"><!-- Your content goes here --></div>
+		</section>
+
+		<!------------------------------------------------------------------------------------------------->
+		<!------------------------------------------------------------------------------------------------->
+		<!------------------------------------------------------------------------------------------------->
+		<!------------------------------------------------------------------------------------------------->
+		<!------------------------------------------------------------------------------------------------->
+
+
+		<section class="mdl-layout__tab-panel" id="scroll-tab-4">
+			<div class="page-content"><!-- Your content goes here --></div>
+		</section>
+
+		<!------------------------------------------------------------------------------------------------->
+		<!------------------------------------------------------------------------------------------------->
+		<!------------------------------------------------------------------------------------------------->
+		<!------------------------------------------------------------------------------------------------->
+		<!------------------------------------------------------------------------------------------------->
+
+
+		<section class="mdl-layout__tab-panel" id="scroll-tab-5">
+			<div class="page-content"><!-- Your content goes here --></div>
+		</section>
+
+		<!------------------------------------------------------------------------------------------------->
+		<!------------------------------------------------------------------------------------------------->
+		<!------------------------------------------------------------------------------------------------->
+		<!------------------------------------------------------------------------------------------------->
+		<!------------------------------------------------------------------------------------------------->
+
+		<!--  
+		<section class="mdl-layout__tab-panel" id="scroll-tab-6">
+			<div class="page-content">
+
+				<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+					<div class="mdl-layout__drawer">
+						<span class="mdl-layout-title">code übungen</span>
+						<nav class="mdl-navigation">
+							<a class="mdl-navigation__link" href="#drag">drag</a>
+							<a class="mdl-navigation__link" href="#key_event">key_event</a>
+							<a class="mdl-navigation__link" href="#move">move</a>
+							<a class="mdl-navigation__link" href="#navbar">navbar</a>
+							<a class="mdl-navigation__link" href="#sort">sort</a>
+						</nav>
+					</div>
+				</div>
+
+				<section class="mdl-layout__content" id="drag">
+					<div class="page-content">
+						<html>
+						<h1>Beispiel Drag 'n Drop</h1>
+						<p>
+							Die farbigen Quadrate können bewegt werden. Erzeuge
+							<button id="b1">noch ein bewegliches Quadrat</button>,
+							<button id="b2">noch ein festes Quadrat</button>.
+						</p>
+						<div id="outer">
+							<div class="fixed">
+								Beweg mich nicht
+								<button class="close">X</button>
+							</div>
+							<div class="draggable">
+								<p>Beweg mich</p>
+								<button class="close">X</button>
+							</div>
+						</div>
+						<div hidden id="Lager">
+							<div class="fixed">
+								Beweg mich nicht
+								<button class="close">X</button>
+							</div>
+							<div class="draggable">
+								<p>Beweg mich</p>
+								<button class="close">X</button>
+							</div>
+						</div>
+
+						</html>
+
+						<style>
+							body {
+								min-height: 200vh;
+								color: wheat;
+							}
+
+							#outer div {
+								display: flex;
+								align-items: center;
+								justify-content: center;
+								border: 1px solid black;
+								width: 200px;
+								height: 200px;
+							}
+
+							.draggable {
+								position: absolute;
+								background-color: magenta;
+							}
+
+							.draggable p {
+								border: 1px dashed black;
+								padding: 0.5em;
+							}
+
+							.draggable button,
+							.fixed button {
+								position: absolute;
+								padding: 0.5em;
+								right: 0;
+								top: 0;
+							}
+
+							.fixed {
+								position: relative;
+							}
+
+							button {
+								padding: 0.5em;
+							}
+						</style>
+
+						<script>
+							// Erzeugen weiterer Quadrate und de Eventhandler für den Close-Button
+							document.addEventListener(
+								"DOMContentLoaded",
+								function () {
+									let i = 0,
+										x0 = 0,
+										y0 = 130;
+									const farben = ["red", "green", "blue", "yellow", "orange", "magenta"];
+									document.querySelector("#b1").addEventListener(
+										"click",
+										function () {
+											let newdiv = document
+												.querySelector("#Lager .draggable")
+												.cloneNode(true);
+											newdiv.style.left = x0 + i * 30 + "px";
+											newdiv.style.top = y0 + i * 30 + "px";
+											newdiv.style.backgroundColor = farben[i % farben.length];
+											i++;
+											if (i > 2 * farben.length) {
+												i = 0;
+												x0 += 30;
+											}
+											document.querySelector("#outer").appendChild(newdiv);
+										},
+										false
+									);
+									document.querySelector("#b2").addEventListener(
+										"click",
+										function () {
+											let newdiv = document.querySelector("#Lager .fixed").cloneNode(true);
+											document.querySelector("#outer").appendChild(newdiv);
+										},
+										false
+									);
+									document.body.addEventListener(
+										"click",
+										function (e) {
+											if (e.target.classList && e.target.classList.contains("close"))
+												e.target.parentNode.parentNode.removeChild(e.target.parentNode);
+										},
+										false
+									);
+								},
+								false
+							);
+							// drag_n_drop.js
+							// 6. 1. 2021
+							// Alle Elemente mit der Klasse "draggable" werden verschiebbar gemacht
+							document.addEventListener(
+								"DOMContentLoaded",
+								function () {
+									"use strict";
+									// Klasse für verschiebbare Elemente
+									const drag_class = "draggable";
+									// Prüfen, welche Eventmodelle unterstützt werden und welches verwendet werden soll
+									const pointer_event = "PointerEvent" in window;
+									const touch_event = "TouchEvent" in window && !pointer_event;
+									// Einige Variablen
+									let pos0; // Pointerposition bei down
+									let start; // Position des Dragobjekts bei down
+									let zmax = 1000; // Start z-Index für die Dragelemente, muss evtl. angepasst werden
+									let dragele = null; // Das aktuelle Dragelement
+									// Bestimmen der Pointerposition
+									function get_pointer_pos(e) {
+										let posx = 0,
+											posy = 0;
+										if (
+											touch_event &&
+											e.targetTouches &&
+											e.targetTouches[0] &&
+											e.targetTouches[0].clientX
+										) {
+											posx = e.targetTouches[0].clientX;
+											posy = e.targetTouches[0].clientY;
+										} else if (e.clientX) {
+											posx = e.clientX;
+											posy = e.clientY;
+										}
+										return {
+											x: posx,
+											y: posy,
+										};
+									} // get_pointer_pos
+									//Eventhandler für pointerdown, touchstart oder mousedown
+									function handle_down(e) {
+										const pos = get_pointer_pos(e);
+										down(e, pos);
+									} // handle_down
+									//Eventhandler für pointermove, touchmove oder mousemove
+									function handle_move(e) {
+										const pos = get_pointer_pos(e);
+										move(e, pos);
+									} // handle_move
+									//Eventhandler für pointerup, touchend oder mouseup
+									function handle_up(e) {
+										up(e);
+									} // handle_up
+									//Eventhandler für keydown
+									function handle_keydown(e) {
+										const keyCode = e.keyCode;
+										let xwert = 0,
+											ywert = 0;
+										if (
+											keyCode &&
+											(keyCode == 27 ||
+												keyCode == 37 ||
+												keyCode == 38 ||
+												keyCode == 39 ||
+												keyCode == 40)
+										) {
+											let delta = e.shiftKey ? 10 : 1;
+											down(e, {
+												x: 0,
+												y: 0,
+											});
+											switch (keyCode) {
+												case 37: // links
+													xwert = -delta;
+													break;
+												case 38: // rauf
+													ywert = -delta;
+													break;
+												case 39: // rechts
+													xwert = delta;
+													break;
+												case 40: // runter
+													ywert = delta;
+													break;
+												case 27: // Escape
+													esc();
+													up(e);
+													return;
+													break;
+											}
+											move(e, {
+												x: xwert,
+												y: ywert,
+											});
+											up(e);
+										}
+									} // keydown
+									// Auswahl des Dragelements und Start der Dragaktion
+									function down(e, pos) {
+										const target = parent(e.target, drag_class);
+										if (target) {
+											document.body.style.touchAction = "none";
+											e.preventDefault();
+											dragele = target;
+											start = {
+												x: dragele.offsetLeft,
+												y: dragele.offsetTop,
+											};
+											pos0 = pos;
+											dragele.style.zIndex = ++zmax;
+											dragele.focus();
+										}
+									} // down
+									// Bewegen des Dragelements
+									function move(e, pos) {
+										if (dragele) {
+											e.preventDefault();
+											dragele.style.left = start.x + pos.x - pos0.x + "px";
+											dragele.style.top = start.y + pos.y - pos0.y + "px";
+										}
+									} // move
+									// Ende der Aktion
+									function up(e) {
+										if (dragele) {
+											dragele = null;
+											document.body.style.touchAction = "auto";
+										}
+									} // up
+									// Defokussieren bei ESC-Taste
+									function esc() {
+										if (dragele) dragele.blur();
+									} // esc
+									// Dragbares Element mit Tab-Index für die Fokussierbarkeit und Eventhandler für Unterdrückung der Standardaktion versehen
+									function finish(ele) {
+										ele.tabIndex = 0;
+										if (!pointer_event) {
+											ele.addEventListener(
+												"touchmove",
+												function (e) {
+													e.preventDefault();
+												},
+												false
+											);
+										}
+									} // finish
+									// Vorfahrenelement mit Klasse classname suchen
+									function parent(child, classname) {
+										if (child && "closest" in child) return child.closest("." + classname);
+										let ele = child;
+										while (ele) {
+											if (ele.classList && ele.classList.contains(classname)) return ele;
+											else ele = ele.parentElement;
+										}
+										return null;
+									} // parent
+									// Alle Eventhandler notieren
+									if (pointer_event) {
+										document.body.addEventListener("pointerdown", handle_down, false);
+										document.body.addEventListener("pointermove", handle_move, false);
+										document.body.addEventListener("pointerup", handle_up, false);
+									} else if (touch_event) {
+										document.body.addEventListener("touchstart", handle_down, false);
+										document.body.addEventListener("touchmove", handle_move, false);
+										document.body.addEventListener("touchend", handle_up, false);
+									} else {
+										document.body.addEventListener("mousedown", handle_down, false);
+										document.body.addEventListener("mousemove", handle_move, false);
+										document.body.addEventListener("mouseup", handle_up, false);
+									}
+									document.body.addEventListener("keydown", handle_keydown, false);
+									// finish für alle verschiebbaren Elemente aufrufen
+									const draggable = document.querySelectorAll("." + drag_class);
+									for (let i = 0; i < draggable.length; i++) {
+										finish(draggable[i]);
+									}
+									// css-Angaben für die Bedienbarkeit
+									const style = document.createElement("style");
+									style.innerText =
+										"." +
+										drag_class +
+										":focus { outline: 2px solid blue; } " +
+										"." +
+										drag_class +
+										" { position: absolute; cursor: move; touch-action: none; } ";
+									document.head.appendChild(style);
+									// finish für nachträglich erzeugte verschiebbare Elemente aufrufen
+									new MutationObserver(function (mutationsList) {
+										for (let i = 0; i < mutationsList.length; i++) {
+											if (mutationsList[i].type === "childList") {
+												for (let j = 0; j < mutationsList[i].addedNodes.length; j++) {
+													if (
+														mutationsList[i].addedNodes[j].classList &&
+														mutationsList[i].addedNodes[j].classList.contains(drag_class)
+													) {
+														finish(mutationsList[i].addedNodes[j]);
+													}
+												}
+											}
+										}
+									}).observe(document.body, {
+										childList: true,
+										subtree: true,
+									});
+								},
+								false
+							); // DOMContentLoaded
+							// Ende drag_n_drop.js
+						</script>
+					</div>
+				</section>
+
+				<section class="mdl-layout__content" id="key_event">
+					<div class="page-content">
+
+						<style>
+							main {
+								background: #242424;
+							}
+
+							.float-button {
+								position: fixed;
+								right: 20px;
+								top: 20px;
+								z-index: 2;
+							}
+
+							#quadrat {
+								width: 50px;
+								height: 50px;
+								background-color: #240293;
+								position: absolute;
+								top: 100px;
+								left: 100px;
+							}
+						</style>
+
+						<body>
+							<main>
+								<div class="float-button">
+									<button onclick="location.href='https://giga93bios.github.io/my-website'">
+										<i class="material-icons">home</i>
+									</button>
+								</div>
+
+								<div id="quadrat"></div>
+
+								<script>
+									const quadrat = document.getElementById("quadrat");
+									let yPosition = 100;
+									let xPosition = 100;
+
+									document.addEventListener("keydown", function (event) {
+										switch (event.key) {
+											case "ArrowUp":
+												yPosition -= 10;
+												break;
+											case "ArrowDown":
+												yPosition += 10;
+												break;
+											case "ArrowLeft":
+												xPosition -= 10;
+												break;
+											case "ArrowRight":
+												xPosition += 10;
+												break;
+										}
+
+										quadrat.style.top = yPosition + "px";
+										quadrat.style.left = xPosition + "px";
+									});
+								</script>
+							</main>
+						</body>
+					</div>
+				</section>
+
+				<section class="mdl-layout__content" id="move">
+					<div class="page-content">
+						<style>
+							[draggable=true] {
+								cursor: move;
+							}
+
+							div {
+								float: left;
+								width: 10em;
+								height: 300px;
+								margin: 10px;
+								padding: 10px;
+								border: 1px solid #aaaaaa;
+								background: white;
+							}
+
+							.zielzone p {
+								float: left;
+								margin: 1em;
+								border-radius: 50%;
+								border: 2px solid #333;
+								width: 2em;
+								height: 2em;
+							}
+
+							#kugel1 {
+								background: #dfac20;
+							}
+
+							#kugel2 {
+								background: #3983ab;
+							}
+
+							#kugel3 {
+								background: #c32e04;
+							}
+
+							#kugel4 {
+								background: #5a9900;
+							}
+
+							#kugel5 {
+								background: purple;
+							}
+
+							#kugel6 {
+								background: white;
+							}
+						</style>
+
+						<h1>HTML5 Drag and Drop 1 - besser</h1>
+						<main>
+							<div id="div1" class="zielzone">
+								<p draggable="true" id="kugel1"></p>
+								<p draggable="true" id="kugel2"></p>
+								<p draggable="true" id="kugel3"></p>
+							</div>
+							<div id="div2" class="zielzone">
+								<p draggable="true" id="kugel4"></p>
+								<p draggable="true" id="kugel5"></p>
+								<p draggable="true" id="kugel6"></p>
+							</div>
+						</main>
+
+						<script>
+							function ziehen(ev) {
+								ev.dataTransfer.setData('text', ev.target.id);
+							}
+
+							function ablegenErlauben(ev) {
+								ev.preventDefault();
+							}
+
+							function ablegen(ev) {
+								ev.preventDefault();
+								let kugelId = ev.dataTransfer.getData('text');
+								let target = ev.target.closest(".zielzone");
+								target.appendChild(document.getElementById(kugelId));
+							}
+							document.addEventListener("DOMContentLoaded", function () {
+								for (let zielzone of document.querySelectorAll(".zielzone")) {
+									zielzone.addEventListener("drop", ablegen);
+									zielzone.addEventListener("dragover", ablegenErlauben);
+								};
+								for (let draggable of document.querySelectorAll("[draggable=true]")) {
+									draggable.addEventListener("dragstart", ziehen);
+								};
+							});
+
+						</script>
+					</div>
+				</section>
+
+				<section class="mdl-layout__content" id="navbar">
+					<div class="page-content">
+						<style>
+							.menu-icon {
+								width: 30px;
+								/* Breite des Icons anpassen */
+								height: 20px;
+								/* Höhe des Icons anpassen */
+								cursor: pointer;
+								/* Mauszeiger als Hand anzeigen */
+								position: relative;
+								/* Für die absolute Positionierung der Striche */
+							}
+
+							.menu-icon span {
+								display: block;
+								width: 100%;
+								height: 3px;
+								/* Dicke der Striche anpassen */
+								background-color: black;
+								/* Farbe der Striche anpassen */
+								margin: 5px 0;
+								/* Abstand zwischen den Strichen anpassen */
+								transition: all 0.3s ease;
+								/* Für einen sanften Übergang */
+								position: absolute;
+								top: 50%;
+								transform: translateY(-50%);
+								/* Zentriert die Striche vertikal */
+							}
+
+							.menu-icon:hover span:nth-child(1) {
+								transform: translateY(-50%) rotate(45deg);
+								/* Erster Strich wird gedreht */
+							}
+
+							.menu-icon:hover span:nth-child(2) {
+								opacity: 0;
+								/* Mittlerer Strich verschwindet */
+							}
+
+							.menu-icon:hover span:nth-child(3) {
+								transform: translateY(-50%) rotate(-45deg);
+								/* Letzter Strich wird gedreht */
+							}
+
+							/* Desktop-Ansicht */
+							#navigation {
+								display: block;
+								/* Sichtbar auf größeren Bildschirmen */
+							}
+
+							/* Smartphone-Ansicht */
+							@media (max-width: 768px) {
+
+								/* Passe die Breite an deine Bedürfnisse an */
+								#navigation {
+									display: none;
+									/* Unsichtbar auf Smartphones */
+								}
+							}
+						</style>
+
+						<div>
+							<nav id="navigation">
+								<div class="menu-icon">
+									<span></span>
+									<span></span>
+									<span></span>
+								</div>
+
+
+								<button id="menu-toggle">Menü</button>
+								<nav id="navigation">
+									<ul>
+										<li><a href="#">Link 1</a></li>
+										<li><a href="#">Link 2</a></li>
+									</ul>
+								</nav>
+
+								<script>
+									const menuToggle = document.getElementById('menu-toggle');
+									const navigation = document.getElementById('navigation');
+
+									menuToggle.addEventListener('click', () => {
+										navigation.style.display = navigation.style.display === 'none' ? 'block' : 'none';
+									});
+								</script>
+							</nav>
+						</div>
+					</div>
+				</section>
+
+				<section class="mdl-layout__content" id="sort">
+					<div class="page-content">
+						<p>Click the button to sort the list alphabetically:</p>
+						<button onclick="sortList()">Sort</button>
+
+						<ul id="id01">
+							<li>Oslo</li>
+							<li>Stockholm</li>
+							<li>Helsinki</li>
+							<li>Berlin</li>
+							<li>Rome</li>
+							<li>Madrid</li>
+						</ul>
+
+						<script>
+							function sortList() {
+								var list, i, switching, b, shouldSwitch;
+								list = document.getElementById("id01");
+								switching = true;
+								/* Make a loop that will continue until
+								no switching has been done: */
+								while (switching) {
+									// Start by saying: no switching is done:
+									switching = false;
+									b = list.getElementsByTagName("LI");
+									// Loop through all list items:
+									for (i = 0; i < (b.length - 1); i++) {
+										// Start by saying there should be no switching:
+										shouldSwitch = false;
+										/* Check if the next item should
+										switch place with the current item: */
+										if (b[i].innerHTML.toLowerCase() > b[i + 1].innerHTML.toLowerCase()) {
+											/* If next item is alphabetically lower than current item,
+											mark as a switch and break the loop: */
+											shouldSwitch = true;
+											break;
+										}
+									}
+									if (shouldSwitch) {
+										/* If a switch has been marked, make the switch
+										and mark the switch as done: */
+										b[i].parentNode.insertBefore(b[i + 1], b[i]);
+										switching = true;
+									}
+								}
+							}
+						</script>
+
+					</div>
+				</section>
+
+			</div>
+		</section>
+	-->
+
 	</main>
+
 </body>
+
+</html>
